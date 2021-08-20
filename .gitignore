@@ -91,3 +91,4 @@ UpgradeLog*.XML
 *.ide
 .vs/
 packages
+*.nupkg
