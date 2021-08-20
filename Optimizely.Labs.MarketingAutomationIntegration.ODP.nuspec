@@ -19,8 +19,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" target="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" />
-    <file src="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" target="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" />
+    <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" target="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" />
+    <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" target="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" />
     <file src="images\icon.png" target="images\icon.png" />
     <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\bin\Release\Optimizely.Labs.MarketingAutomationIntegration.ODP.dll" target="lib\net47\Optimizely.Labs.MarketingAutomationIntegration.ODP.dll" />
     <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\bin\Release\Optimizely.Labs.MarketingAutomationIntegration.ODP.pdb" target="lib\net47\Optimizely.Labs.MarketingAutomationIntegration.ODP.pdb" />
