@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Optimizely.Labs.MarketingAutomationIntegration.ODP</id>
+    <version>0.0.1</version>
+    <title>Optimizely.Labs.MarketingAutomationIntegration.ODP</title>
+    <authors>EPiServer Labs,Joshua Folkerts</authors>
+    <owners>EPiServer Labs</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://www.optimizely.com/legal/end-user-licence-agreement/</licenseUrl>
+    <icon>images\icon.png</icon>
+    <projectUrl>https://github.com/optimizely/marketingautomationintegration-odp</projectUrl>
+    <description>ODP integration for Optimizely Forms</description>
+    <summary>ODP integration for Optimizely Forms</summary>
+    <language></language>
+    <tags>Forms, ODP</tags>
+    <dependencies>
+      <dependency id="EPiServer.ConnectForMarketingAutomation" version="5.6.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" target="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" />
+    <file src="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" target="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" />
+    <file src="images\icon.png" target="images\icon.png" />
+    <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\bin\Release\Optimizely.Labs.MarketingAutomationIntegration.ODP.dll" target="lib\net47\Optimizely.Labs.MarketingAutomationIntegration.ODP.dll" />
+    <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\bin\Release\Optimizely.Labs.MarketingAutomationIntegration.ODP.pdb" target="lib\net47\Optimizely.Labs.MarketingAutomationIntegration.ODP.pdb" />
+  </files>
+</package>
