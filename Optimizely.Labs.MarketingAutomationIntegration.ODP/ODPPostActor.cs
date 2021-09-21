@@ -5,8 +5,10 @@ using EPiServer.Forms.Implementation.Elements;
 using EPiServer.ServiceLocation;
 using Optimizely.Labs.MarketingAutomationIntegration.ODP.Models;
 using Optimizely.Labs.MarketingAutomationIntegration.ODP.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 {
@@ -19,6 +21,8 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
         private readonly Injected<IContentLoader> ContentLoader;
 
         private IEnumerable<IContent> _formContents = Enumerable.Empty<IContent>();
+
+        private const string VUID = "vuid";
 
         public override object Run(object input)
         {
@@ -67,6 +71,12 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 
                 if (formAttributes.Any() && !string.IsNullOrWhiteSpace(email))
                 {
+                    var vuid = TryGetVuid(HttpRequestContext.RequestContext.HttpContext);
+                    if (!string.IsNullOrWhiteSpace(vuid))
+                    {
+                        formAttributes.Add(VUID, vuid);
+                    }
+
                     validProfileSave = _odpService.Service.SaveProfileInformation(email, formAttributes);
                 }
 
@@ -147,6 +157,26 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
                 }
             }
             return consentGiven;
+        }
+
+        private string TryGetVuid(HttpContextBase context)
+        {
+            if (context != null && context.Request.Cookies[VUID] != null)
+            {
+                var vuidCookieValue = context.Request.Cookies[VUID].Value;
+                if (!string.IsNullOrWhiteSpace(vuidCookieValue))
+                {
+                    var cookieValueSplit = vuidCookieValue.Split(new char[] { '%' });
+                    if (!string.IsNullOrWhiteSpace(cookieValueSplit[0]))
+                    {
+                        if (Guid.TryParse(cookieValueSplit[0], out Guid userVuid))
+                        {
+                            return userVuid.ToString("N");
+                        }
+                    }
+                }
+            }
+            return string.Empty;
         }
 
         public string ObjectType
