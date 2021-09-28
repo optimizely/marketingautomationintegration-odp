@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Net.Http;
 using System.Text;
 
@@ -32,17 +31,14 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
 
         private readonly ISynchronizedObjectInstanceCache _objectInstanceCache;
 
-        private readonly SettingsOptions _settingOptions;
-
-        public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache, SettingsOptions settingOptions)
+        public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache)
         {
             _objectInstanceCache = objectInstanceCache;
-            _settingOptions = settingOptions;
             this.client = new HttpClient()
             {
                 BaseAddress = new System.Uri(BaseUrl)
             };
-            client.DefaultRequestHeaders.Add("x-api-key", _settingOptions.APIKey);
+            client.DefaultRequestHeaders.Add("x-api-key", SettingsOptions.APIKey);
         }
 
         public Dictionary<string, string> GetProfileInformation(string email)

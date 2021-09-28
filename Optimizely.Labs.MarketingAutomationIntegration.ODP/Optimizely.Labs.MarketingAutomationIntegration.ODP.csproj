@@ -89,9 +89,6 @@
     <Reference Include="EPiServer.ImageLibrary, Version=11.20.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.20.0\lib\net461\EPiServer.ImageLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Labs.ConfigurationManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\FoundationFullStack\Foundation\packages\EPiServer.Labs.ConfigurationManager.0.1.1\lib\net45\EPiServer.Labs.ConfigurationManager.dll</HintPath>
-    </Reference>
     <Reference Include="EPiServer.Licensing, Version=11.20.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.0\lib\net461\EPiServer.Licensing.dll</HintPath>
     </Reference>
