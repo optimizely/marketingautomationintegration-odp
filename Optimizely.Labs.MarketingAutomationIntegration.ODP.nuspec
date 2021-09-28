@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Optimizely.Labs.MarketingAutomationIntegration.ODP</id>
-    <version>0.0.5</version>
-    <title>Optimizely.Labs.MarketingAutomationIntegration.ODP</title>
+    <id>Optimizely.Labs.MarketingAutomationIntegration.ODP.AS</id>
+    <version>0.1.0</version>
+    <title>Optimizely.Labs.MarketingAutomationIntegration.ODP.AS</title>
     <authors>EPiServer Labs,Joshua Folkerts</authors>
     <owners>EPiServer Labs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://www.optimizely.com/legal/end-user-licence-agreement/</licenseUrl>
     <icon>images\icon.png</icon>
     <projectUrl>https://github.com/optimizely/marketingautomationintegration-odp</projectUrl>
-    <description>ODP integration for Optimizely Forms</description>
-    <summary>ODP integration for Optimizely Forms</summary>
-    <releaseNotes>Updating dependencies</releaseNotes>
+    <description>ODP integration for Optimizely Forms that retrieves its settings from AppSettings config</description>
+    <summary>ODP integration for Optimizely Forms that retrieves its settings from AppSettings config</summary>
+    <releaseNotes>Adding support for optimizely odp forms integration to retrieve its settings from AppSettings.config</releaseNotes>
     <language></language>
     <tags>Forms, ODP</tags>
     <dependencies>
