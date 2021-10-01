@@ -1,12 +1,17 @@
-﻿using EPiServer.ServiceLocation;
+﻿using System.Configuration;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 {
-    [Options]
     public class SettingsOptions
     {
-        public string CustomerObjectName { get; set; } = "customers";
+        static SettingsOptions()
+        {
+            CustomerObjectName = ConfigurationManager.AppSettings["ma-odp-customerobjectname"];
+            APIKey = ConfigurationManager.AppSettings["ma-odp-apikey"];
+        }
 
-        public string APIKey { get; set; }
+        public static string CustomerObjectName { get; }
+
+        public static string APIKey { get; }
     }
 }

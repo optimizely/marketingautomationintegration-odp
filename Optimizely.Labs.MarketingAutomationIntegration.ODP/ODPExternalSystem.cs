@@ -12,8 +12,6 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 
         private readonly Injected<ODPService> _odpService;
 
-        private readonly Injected<SettingsOptions> _odpSettingOptions;
-
         public ODPExternalSystem()
         {
         }
@@ -26,11 +24,11 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
             {
                 var customerDataSource = new Datasource()
                 {
-                    Name = _odpSettingOptions.Service.CustomerObjectName,
-                    Id = _odpSettingOptions.Service.CustomerObjectName,
+                    Name = SettingsOptions.CustomerObjectName,
+                    Id = SettingsOptions.CustomerObjectName,
                     OwnerSystem = this
                 };
-                var fields = this._odpService.Service.GetFields(_odpSettingOptions.Service.CustomerObjectName);
+                var fields = this._odpService.Service.GetFields(SettingsOptions.CustomerObjectName);
                 if (fields.Any())
                 {
                     customerDataSource.Columns = fields
