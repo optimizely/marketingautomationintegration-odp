@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Optimizely.Labs.MarketingAutomationIntegration.ODP</id>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
     <title>Optimizely.Labs.MarketingAutomationIntegration.ODP</title>
     <authors>EPiServer Labs,Joshua Folkerts</authors>
     <owners>EPiServer Labs</owners>
@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/optimizely/marketingautomationintegration-odp</projectUrl>
     <description>ODP integration for Optimizely Forms that retrieves its settings from AppSettings config</description>
     <summary>ODP integration for Optimizely Forms that retrieves its settings from AppSettings config</summary>
-    <releaseNotes>Adding support for optimizely odp forms integration to retrieve its settings from AppSettings.config</releaseNotes>
+    <releaseNotes>Adding support for optimizely odp forms integration to retrieve its settings from AppSettings.config.  Added in config transform for app settings</releaseNotes>
     <language></language>
     <tags>Forms, ODP</tags>
     <dependencies>
@@ -21,6 +21,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="web.config.transform" target="content\web.config.transform" />
     <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" target="content\lang\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" />
     <file src="Optimizely.Labs.MarketingAutomationIntegration.ODP\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" target="content\Views\Shared\ElementBlocks\ODPListConsentFormBlock.cshtml" />
     <file src="images\icon.png" target="images\icon.png" />
