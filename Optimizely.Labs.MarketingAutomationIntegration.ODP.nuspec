@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Optimizely.Labs.MarketingAutomationIntegration.ODP</id>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
     <title>Optimizely.Labs.MarketingAutomationIntegration.ODP</title>
     <authors>EPiServer Labs,Joshua Folkerts</authors>
     <owners>EPiServer Labs</owners>
