@@ -92,3 +92,5 @@ UpgradeLog*.XML
 .vs/
 packages
 *.nupkg
+
+.idea
