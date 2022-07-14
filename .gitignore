@@ -94,3 +94,5 @@ packages
 *.nupkg
 
 .idea
+
+modules/
