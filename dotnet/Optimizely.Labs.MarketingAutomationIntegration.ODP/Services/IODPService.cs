@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using Microsoft.Extensions.Options;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
 {
@@ -30,15 +31,19 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
         private readonly HttpClient client = new HttpClient();
 
         private readonly ISynchronizedObjectInstanceCache _objectInstanceCache;
+        private readonly MAIOdpSettings _config;
 
-        public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache)
+        public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache, IOptions<MAIOdpSettings> config)
         {
             _objectInstanceCache = objectInstanceCache;
+            _config = config?.Value ?? throw new Exception("MAIOdpSettings is not configured in appSettings.json");
+            if(string.IsNullOrEmpty(_config.CustomerObjectName) || string.IsNullOrEmpty(_config.APIKey))
+                throw new Exception("MAIOdpSettings:CustomerObjectName or  MAIOdpSettings:APIKey is not configured in appSettings.json");
             this.client = new HttpClient()
             {
                 BaseAddress = new System.Uri(BaseUrl)
             };
-            client.DefaultRequestHeaders.Add("x-api-key", SettingsOptions.APIKey);
+            client.DefaultRequestHeaders.Add("x-api-key", _config.APIKey);
         }
 
         public Dictionary<string, string> GetProfileInformation(string email)

@@ -23,7 +23,7 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Models
 
     public class ODPListSelectionFactory : ISelectionFactory
     {
-        private Injected<ODPService> ODPService;
+        private Injected<IODPService> ODPService;
 
         public IEnumerable<ISelectItem> GetSelections(ExtendedMetadata metadata) =>
             ODPService.Service.GetLists()

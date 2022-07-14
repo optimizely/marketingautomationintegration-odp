@@ -8,7 +8,8 @@ using Optimizely.Labs.MarketingAutomationIntegration.ODP.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net.Http;
+using Microsoft.AspNetCore.Http;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 {
@@ -71,7 +72,7 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 
                 if (formAttributes.Any() && !string.IsNullOrWhiteSpace(email))
                 {
-                    var vuid = TryGetVuid(HttpRequestContext.RequestContext.HttpContext);
+                    var vuid = TryGetVuid(HttpRequestContext.HttpContext);
                     if (!string.IsNullOrWhiteSpace(vuid))
                     {
                         formAttributes.Add(VUID, vuid);
@@ -159,11 +160,11 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
             return consentGiven;
         }
 
-        private string TryGetVuid(HttpContextBase context)
+        private string TryGetVuid(HttpContext context)
         {
             if (context != null && context.Request.Cookies[VUID] != null)
             {
-                var vuidCookieValue = context.Request.Cookies[VUID].Value;
+                var vuidCookieValue = context.Request.Cookies[VUID];
                 if (!string.IsNullOrWhiteSpace(vuidCookieValue))
                 {
                     var cookieValueSplit = vuidCookieValue.Split(new char[] { '%' });

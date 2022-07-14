@@ -1,8 +1,10 @@
-﻿using EPiServer.Forms.Core.Internal.ExternalSystem;
+﻿using System;
+using EPiServer.Forms.Core.Internal.ExternalSystem;
 using EPiServer.ServiceLocation;
 using Optimizely.Labs.MarketingAutomationIntegration.ODP.Services;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Options;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
 {
@@ -10,11 +12,8 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
     {
         public const string DataSourceKey = "ODPListing";
 
-        private readonly Injected<ODPService> _odpService;
-
-        public ODPExternalSystem()
-        {
-        }
+        private readonly Injected<IODPService> _odpService;
+        private Injected<IOptions<MAIOdpSettings>> _config;
 
         public virtual string Id => DataSourceKey;
 
@@ -24,11 +23,11 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
             {
                 var customerDataSource = new Datasource()
                 {
-                    Name = SettingsOptions.CustomerObjectName,
-                    Id = SettingsOptions.CustomerObjectName,
+                    Name = _config.Service.Value.CustomerObjectName,
+                    Id = _config.Service.Value.CustomerObjectName,
                     OwnerSystem = this
                 };
-                var fields = this._odpService.Service.GetFields(SettingsOptions.CustomerObjectName);
+                var fields = this._odpService.Service.GetFields(_config.Service.Value.CustomerObjectName);
                 if (fields.Any())
                 {
                     customerDataSource.Columns = fields
