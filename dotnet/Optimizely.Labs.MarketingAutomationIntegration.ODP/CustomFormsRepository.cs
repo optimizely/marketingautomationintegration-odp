@@ -8,6 +8,7 @@ using Episerver.Marketing.Connector.Framework.Data;
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP;
 
 /*
+ *  Copy this file into your CMS Project and 
  *  Add the following in Startup.cs if using Marketing Automation Connectors
  *         services.AddFormRepositoryWorkAround();
  */
