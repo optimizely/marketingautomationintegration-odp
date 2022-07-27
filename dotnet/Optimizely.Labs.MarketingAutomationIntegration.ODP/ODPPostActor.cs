@@ -8,7 +8,6 @@ using Optimizely.Labs.MarketingAutomationIntegration.ODP.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
@@ -167,10 +166,19 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP
                 var vuidCookieValue = context.Request.Cookies[VUID];
                 if (!string.IsNullOrWhiteSpace(vuidCookieValue))
                 {
-                    var cookieValueSplit = vuidCookieValue.Split(new char[] { '%' });
-                    if (!string.IsNullOrWhiteSpace(cookieValueSplit[0]))
+                    var cookieValueSplit = "";
+                    if (vuidCookieValue.Contains("%"))
                     {
-                        if (Guid.TryParse(cookieValueSplit[0], out Guid userVuid))
+                        cookieValueSplit = vuidCookieValue.Split(new char[] { '%' })[0];
+                    }
+                    else if (vuidCookieValue.Contains("|"))
+                    {
+                        cookieValueSplit = vuidCookieValue.Split(new char[] { '|' })[0];
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(cookieValueSplit))
+                    {
+                        if (Guid.TryParse(cookieValueSplit, out Guid userVuid))
                         {
                             return userVuid.ToString("N");
                         }
