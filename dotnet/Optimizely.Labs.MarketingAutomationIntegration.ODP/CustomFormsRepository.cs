@@ -7,6 +7,10 @@ using Episerver.Marketing.Connector.Framework.Data;
 
 namespace Optimizely.Labs.MarketingAutomationIntegration.ODP;
 
+/*
+ *  Add the following in Startup.cs if using Marketing Automation Connectors
+ *         services.AddFormRepositoryWorkAround();
+ */
 public class CustomFormsRepository : IFormsRepository
 {
     private readonly IServiceProvider _serviceProvider;
