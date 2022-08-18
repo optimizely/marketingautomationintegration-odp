@@ -1,4 +1,5 @@
-﻿using EPiServer.Framework.Cache;
+﻿using Castle.Core.Internal;
+using EPiServer.Framework.Cache;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -25,14 +26,14 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
 
     public class ODPService : IODPService
     {
-        private const string BaseUrl = "https://api.zaius.com/";
-
         private readonly HttpClient client = new HttpClient();
 
         private readonly ISynchronizedObjectInstanceCache _objectInstanceCache;
 
         public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache)
         {
+            string BaseUrl = (SettingsOptions.OdpBaseEndPoint).IsNullOrEmpty() ? "https://api.zaius.com/" : SettingsOptions.OdpBaseEndPoint;
+
             _objectInstanceCache = objectInstanceCache;
             this.client = new HttpClient()
             {

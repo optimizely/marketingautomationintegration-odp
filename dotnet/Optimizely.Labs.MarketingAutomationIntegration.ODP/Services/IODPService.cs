@@ -26,8 +26,6 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
 
     public class ODPService : IODPService
     {
-        private const string BaseUrl = "https://api.zaius.com/";
-
         private readonly HttpClient client = new HttpClient();
 
         private readonly ISynchronizedObjectInstanceCache _objectInstanceCache;
@@ -35,10 +33,15 @@ namespace Optimizely.Labs.MarketingAutomationIntegration.ODP.Services
 
         public ODPService(ISynchronizedObjectInstanceCache objectInstanceCache, IOptions<MAIOdpSettings> config)
         {
+            string BaseUrl = "https://api.zaius.com/";
             _objectInstanceCache = objectInstanceCache;
             _config = config?.Value ?? throw new Exception("MAIOdpSettings is not configured in appSettings.json");
-            if(string.IsNullOrEmpty(_config.CustomerObjectName) || string.IsNullOrEmpty(_config.APIKey))
-                throw new Exception("MAIOdpSettings:CustomerObjectName or  MAIOdpSettings:APIKey is not configured in appSettings.json");
+            if (!string.IsNullOrEmpty(_config.OdpBaseEndPoint))
+            {
+                BaseUrl = _config.OdpBaseEndPoint;
+            }
+            if (string.IsNullOrEmpty(_config.CustomerObjectName) || string.IsNullOrEmpty(_config.APIKey))
+                throw new Exception("MAIOdpSettings:CustomerObjectName or MAIOdpSettings:APIKey is not configured in appSettings.json");
             this.client = new HttpClient()
             {
                 BaseAddress = new System.Uri(BaseUrl)

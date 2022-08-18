@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 	<appSettings>
+		<add key="ma-odp-odpbaseendpoint" value="https://api.zaius.com/" />
 		<add key="ma-odp-customerobjectname" value="customers" />
 		<add key="ma-odp-apikey" value="" />
     </appSettings>
