@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <ItemGroup>
+    <Translations Include="$(MSBuildThisFileDirectory)..\..\contentFiles\any\any\Resources\**\*.xml" />
+    <Views Include="$(MSBuildThisFileDirectory)..\..\contentFiles\any\any\Views\Shared\**\*.cshtml" />
+  </ItemGroup>
+
+  <Target Name="CopyItems" BeforeTargets="Build">
+		<Copy
+      SourceFiles="@(Translations)"
+      DestinationFolder="$(MSBuildProjectDirectory)\Resources\%(RecursiveDir)"
+    />
+    <Copy
+      SourceFiles="@(Views)"
+      DestinationFolder="$(MSBuildProjectDirectory)\Views\Shared\%(RecursiveDir)"
+    />
+	</Target>
+</Project>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <NuspecFile>$(SolutionDir)\Optimizely.Labs.MarketingAutomationIntegration.ODP.nuspec</NuspecFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="resources\languagefiles\Optimizely.Labs.MarketingAutomationIntegration.ODP.Forms_EN.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EPiServer.CMS.AspNetCore.Templating" Version="12.4.2" />
+    <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.6.0" />
+    <PackageReference Include="EPiServer.ConnectForMarketingAutomation" Version="6.0.0" />
+    <PackageReference Include="EPiServer.Forms" Version="5.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ODPConnector.cs" />
+    <Compile Remove="CustomFormsRepository.cs" />
+  </ItemGroup>
+</Project>
